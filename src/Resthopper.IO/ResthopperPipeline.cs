@@ -49,7 +49,7 @@ namespace Resthopper.IO
             if (jsonArguments != null) {
                 bytes = Encoding.Default.GetBytes(jsonArguments);
             }
-            using (var client = new System.Net.WebClient()) {
+            using (var client = new RhWebClient()) {
                 client.Headers.Add("Content-Type", "application/json");
                 client.Headers.Add("Authorization", token);
 
@@ -106,6 +106,16 @@ namespace Resthopper.IO
 
                 throw;
             }
+        }
+    }
+
+    public class RhWebClient : System.Net.WebClient
+    {
+        protected override System.Net.WebRequest GetWebRequest(Uri uri)
+        {
+            System.Net.WebRequest w = base.GetWebRequest(uri);
+            w.Timeout = 3 * 60 * 1000;
+            return w;
         }
     }
 }
