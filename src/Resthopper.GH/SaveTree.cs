@@ -54,8 +54,10 @@ namespace Resthopper.GH
             Resthopper.IO.DataTree<ResthopperObject> OutputTree = new Resthopper.IO.DataTree<ResthopperObject>();
 
             var volatileData = this.Params.Input[0].Sources[0].VolatileData;
+            
             for (int p = 0; p < volatileData.PathCount; p++)
             {
+                Grasshopper.Kernel.Data.GH_Path currPath = volatileData.get_Path(p);
                 List<ResthopperObject> ResthopperObjectList = new List<ResthopperObject>();
                 foreach (var goo in volatileData.get_Branch(p))
                 {
@@ -151,16 +153,10 @@ namespace Resthopper.GH
                         ResthopperObjectList.Add(GetResthopperObject<Mesh>(rhValue));
                     }
                 }
-
-                GhPath ghpath = new GhPath(new int[] { p });
+                GhPath ghpath = new GhPath(currPath.Indices);
                 OutputTree.Add(ghpath.ToString(), ResthopperObjectList);
             }
-
-
-
-
-
-
+            
             string serialized = JsonConvert.SerializeObject(OutputTree);
             using(StreamWriter writer = new StreamWriter(path))
             {
