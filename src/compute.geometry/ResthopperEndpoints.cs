@@ -108,6 +108,7 @@ namespace compute.geometry
                                     {
                                         GH_Path path = new GH_Path(GhPath.FromString(entree.Key));
                                         List<GH_Point> objectList = new List<GH_Point>();
+                                        ptParam.AddVolatileDataList(path, new List<GH_Point>());
                                         for (int i = 0; i < entree.Value.Count; i++)
                                         {
                                             ResthopperObject restobj = entree.Value[i];
@@ -140,6 +141,7 @@ namespace compute.geometry
                                     {
                                         GH_Path path = new GH_Path(GhPath.FromString(entree.Key));
                                         List<GH_Integer> objectList = new List<GH_Integer>();
+                                        integerParam.AddVolatileDataList(path, new List<GH_Integer>());
                                         for (int i = 0; i < entree.Value.Count; i++)
                                         {
                                             ResthopperObject restobj = entree.Value[i];
@@ -156,6 +158,7 @@ namespace compute.geometry
                                     {
                                         GH_Path path = new GH_Path(GhPath.FromString(entree.Key));
                                         List<GH_Number> objectList = new List<GH_Number>();
+                                        numberParam.AddVolatileDataList(path, new List<GH_Number>());
                                         for (int i = 0; i < entree.Value.Count; i++)
                                         {
                                             ResthopperObject restobj = entree.Value[i];
@@ -188,6 +191,7 @@ namespace compute.geometry
                                     {
                                         GH_Path path = new GH_Path(GhPath.FromString(entree.Key));
                                         List<GH_Line> objectList = new List<GH_Line>();
+                                        lineParam.AddVolatileDataList(path, new List<GH_Line>());
                                         for (int i = 0; i < entree.Value.Count; i++)
                                         {
                                             ResthopperObject restobj = entree.Value[i];
@@ -204,6 +208,7 @@ namespace compute.geometry
                                     {
                                         GH_Path path = new GH_Path(GhPath.FromString(entree.Key));
                                         List<GH_Curve> objectList = new List<GH_Curve>();
+                                        curveParam.AddVolatileDataList(path, new List<GH_Curve>());
                                         for (int i = 0; i < entree.Value.Count; i++)
                                         {
                                             ResthopperObject restobj = entree.Value[i];
