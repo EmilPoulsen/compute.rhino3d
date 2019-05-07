@@ -435,7 +435,8 @@ namespace compute.geometry
                     for (int p = 0; p < volatileData.PathCount; p++)
                     {
                         List<ResthopperObject> ResthopperObjectList = new List<ResthopperObject>();
-                        foreach (var goo in volatileData.get_Branch(p))
+                        Grasshopper.Kernel.Data.GH_Path currPath = volatileData.get_Path(p);
+                        foreach (var goo in volatileData.get_Branch(currPath))
                         {
                             if (goo == null) continue;
                             else if (goo.GetType() == typeof(GH_Boolean))
@@ -530,7 +531,7 @@ namespace compute.geometry
                             }
                         }
 
-                        GhPath path = new GhPath(new int[] { p });
+                        GhPath path = new GhPath(currPath.Indices);
                         OutputTree.Add(path.ToString(), ResthopperObjectList);
                     }
 
