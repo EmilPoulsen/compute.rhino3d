@@ -59,6 +59,7 @@ namespace Resthopper.GH
             {
                 List<IGH_Goo> pLines = new List<IGH_Goo>();
                 Grasshopper.Kernel.Data.GH_Path ghPath = new Grasshopper.Kernel.Data.GH_Path(GhPath.FromString(pair.Key));
+                ghTree.AppendRange(new List<IGH_Goo>(), ghPath);
                 foreach (ResthopperObject ro in pair.Value) {
                     //object output;
                     if (ro.Type == typeof(Rhino.Geometry.Polyline).FullName) {
