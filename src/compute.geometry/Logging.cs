@@ -48,11 +48,11 @@ namespace compute.geometry
 #endif
                 };
 
-                var aws_region_string = Env.GetEnvironmentString("AWS_REGION_ENDPOINT", "us-east-1");
-                var aws_region_endpoint = Amazon.RegionEndpoint.GetBySystemName(aws_region_string);
-                var aws_client = new AmazonCloudWatchLogsClient(aws_region_endpoint);
+                //var aws_region_string = Env.GetEnvironmentString("AWS_REGION_ENDPOINT", "us-east-1");
+                //var aws_region_endpoint = Amazon.RegionEndpoint.GetBySystemName(aws_region_string);
+                //var aws_client = new AmazonCloudWatchLogsClient(aws_region_endpoint);
 
-                logger.WriteTo.AmazonCloudWatch(options, aws_client);
+                //logger.WriteTo.AmazonCloudWatch(options, aws_client);
 
                 cloudwatch_enabled = true;
             }
